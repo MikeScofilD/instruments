@@ -26,3 +26,7 @@ Route::group(['middleware' => 'api','namespace' => 'App\Http\Controllers','prefi
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::group(['middleware' => 'admin','namespace' => 'App\Http\Controllers','prefix' => 'instrument'], function(){
+
+});
