@@ -18,9 +18,9 @@ class UserCreatedMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public string $user_mail)
     {
-        //
+
     }
 
     /**
@@ -31,7 +31,7 @@ class UserCreatedMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'User Created Mail',
+            subject: 'User Created Mail' . $this->user_mail,
         );
     }
 
