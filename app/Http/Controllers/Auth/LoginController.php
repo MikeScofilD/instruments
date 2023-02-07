@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\MailTelegramEvents;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,10 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+     protected function authenticated() {
+
+        $user = Auth::user();
     }
 }
